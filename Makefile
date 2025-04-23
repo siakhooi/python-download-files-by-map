@@ -1,8 +1,8 @@
 help:
 clean:
-	rm -rf dist target coverage
+	rm -rf dist target coverage sample
 run:
-	poetry run download_files_by_map map-sample.json
+	poetry run download-files-by-map map-sample.json
 build:
 	scripts/set-version.sh
 	poetry build
@@ -13,7 +13,7 @@ flake8:
 update:
 	poetry update
 test:
-	 poetry run pytest  --capture=sys \
+	 poetry run pytest --capture=sys \
 	 --junit-xml=coverage/test-results.xml \
 	 --cov=download_files_by_map \
 	 --cov-report term-missing  \
