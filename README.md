@@ -12,6 +12,7 @@ $ download-files-by-map yamlfile
 ```
 
 ## Links
+- https://pypi.org/project/download-files-by-map/
 - https://github.com/siakhooi/python-download-files-by-map
 
 ## Badges
