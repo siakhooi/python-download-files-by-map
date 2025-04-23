@@ -3,6 +3,7 @@ import json
 import requests
 import urllib3
 import os
+from download_files_by_map.util import get_filename_from_arguments
 
 urllib3.disable_warnings()
 
@@ -50,8 +51,9 @@ def process(data, parent_directory):
 
 
 def download_files_by_map():
-    if len(sys.argv) == 2:
-        file = open(sys.argv[1], "r")
+    filename = get_filename_from_arguments()
+    if filename:
+        file = open(filename, "r")
     else:
         file = sys.stdin
 

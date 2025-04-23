@@ -1,6 +1,6 @@
 [project]
 name = "download_files_by_map"
-version = "0.1.1"
+version = "0.1.2"
 description = "download files using a json tree map"
 authors = [
     {name = "Siak Hooi",email = "siakhooi@gmail.com"}
