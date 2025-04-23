@@ -1,4 +1,5 @@
 import sys
+import os
 
 
 def get_filename_from_arguments():
@@ -9,3 +10,7 @@ def get_filename_from_arguments():
     else:
         print("Usage: download_files_by_maps [map_json_file]")
         sys.exit(1)
+
+
+def mkdir_parent_directories(path):
+    os.makedirs(os.path.dirname(path), exist_ok=True)

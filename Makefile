@@ -1,8 +1,8 @@
 help:
 clean:
-	rm -rf dist target coverage sample
+	rm -rf dist target coverage sample download_files_by_map-0.1.0.tar.gz
 run:
-	poetry run download-files-by-map map-sample.json
+	poetry run download-files-by-map tests/test-data/map1.json
 build:
 	scripts/set-version.sh
 	poetry build

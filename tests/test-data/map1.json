@@ -1,0 +1,27 @@
+{
+  "type": "folder",
+  "local_filename": "sample",
+  "children": [
+    {
+      "local_filename": "zip_files",
+      "children": [
+        {
+          "remote_url": "http://download-server-123/file1.txt",
+          "local_filename": "file1.txt",
+          "type": "file"
+        },
+        {
+          "remote_url": "http://download-server-123/file2.txt",
+          "local_filename": "file2.txt",
+          "type": "file"
+        }
+      ],
+      "type": "folder"
+    },
+    {
+      "remote_url": "http://download-server-123/file3.txt",
+      "local_filename": "file3.txt",
+      "type": "file"
+    }
+  ]
+}

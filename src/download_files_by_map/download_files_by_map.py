@@ -4,14 +4,11 @@ import requests
 import urllib3
 import os
 from download_files_by_map.util import get_filename_from_arguments
+from download_files_by_map.util import mkdir_parent_directories
 
 urllib3.disable_warnings()
 
 file_list = []
-
-
-def mkdir_p(path):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
 
 
 def download():
@@ -19,7 +16,7 @@ def download():
         path = file["path"]
         url = file["url"]
         print(f"{path}")
-        mkdir_p(path)
+        mkdir_parent_directories(path)
 
         with (
             open(path, "+bw") as f,
@@ -60,7 +57,7 @@ def download_files_by_map():
     data = json.load(file)
     if isinstance(data, list):
         for item in data:
-            process(item, "")
+            process(item, "./")
     elif isinstance(data, dict):
         process(data, "")
 
