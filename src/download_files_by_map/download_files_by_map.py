@@ -50,6 +50,10 @@ def process(data, parent_directory):
 def download_files_by_map():
     filename = get_filename_from_arguments()
     if filename:
+        if not os.path.exists(filename):
+            print(f"{filename} is not exist.", file=sys.stderr)
+            sys.exit(2)
+
         file = open(filename, "r")
     else:
         file = sys.stdin

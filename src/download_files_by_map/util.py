@@ -8,7 +8,7 @@ def get_filename_from_arguments():
     elif len(sys.argv) == 1:
         return None
     else:
-        print("Usage: download_files_by_maps [map_json_file]")
+        print("Usage: download_files_by_maps [map_json_file]", file=sys.stderr)
         sys.exit(1)
 
 
