@@ -1,0 +1,27 @@
+{
+  "type": "folder",
+  "local_filename": "sample",
+  "children": [
+    {
+      "local_filename": "binaries",
+      "children": [
+        {
+          "remote_url": "https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-amd64",
+          "local_filename": "jq",
+          "type": "file"
+        },
+        {
+          "remote_url": "https://github.com/mikefarah/yq/releases/download/v4.45.1/yq_linux_amd64",
+          "local_filename": "yq",
+          "type": "file"
+        }
+      ],
+      "type": "folder"
+    },
+    {
+      "remote_url": "https://tldp.org/LDP/intro-linux/intro-linux.pdf",
+      "local_filename": "Introduction to Linux.pdf",
+      "type": "file"
+    }
+  ]
+}

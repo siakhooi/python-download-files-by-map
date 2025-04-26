@@ -8,12 +8,49 @@ pip install download-files-by-map
 
 ## Usage
 ```
-$ download-files-by-map yamlfile
+$ download-files-by-map jsonfile
 ```
+## map file format
+- map file is a json file, with the following structure, it is either:
+  - a file object
+  - a folder object
+  - an array of file and/or folder objects
+- Sample map file: [sample-map.json](sample-map.json)
+### file object
+- file object contains 3 attributes:
+  - type - must be equal to 'file'
+  - local_filename - filename to save into local directory tree
+  - remote_url - url to the remote file to be retrieved
+
+- Example:
+```
+  {
+  "remote_url": "http://download-server-123/file1.txt",
+  "local_filename": "file1.txt",
+  "type": "file"
+  }
+```
+### folder object
+- folder object contains 3 attributes:
+  - type - must be equal to 'folder'
+  - local_filename - directory name to be created in local
+  - children - an array contains files and/or folders to be children of current folder
+```
+  {
+    "type": "folder",
+    "local_filename": "sample",
+    "children": [
+      ... files or folders object
+    ]
+  },
+
+```
+
 
 ## Links
 - https://pypi.org/project/download-files-by-map/
 - https://github.com/siakhooi/python-download-files-by-map
+- https://sonarcloud.io/project/overview?id=siakhooi_python-download-files-by-map
 
 ## Badges
 ![GitHub](https://img.shields.io/github/license/siakhooi/python-download-files-by-map?logo=github)
