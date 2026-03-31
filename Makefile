@@ -1,6 +1,7 @@
 help:
 clean:
-	rm -rf dist target coverage sample download_files_by_map-0.1.0.tar.gz
+	rm -rf dist target coverage sample download_files_by_map-0.1.0.tar.gz \
+	.pytest_cache .tox .coverage tests/__pycache__ src/download_files_by_map/__pycache__
 run:
 	poetry run download-files-by-map tests/test-data/map1.json
 build:
@@ -26,11 +27,5 @@ all: clean install flake8 build tox-run
 release:
 	scripts/release.sh
 
-commit:
-	scripts/git-commit.sh
-fix-cert:
-	pip install pip-system-certs --trusted-host pypi.org --trusted-host files.pythonhosted.org
-fix-pyenv:
-	 pyenv versions --bare > .python-version
 tox-run:
 	tox run
