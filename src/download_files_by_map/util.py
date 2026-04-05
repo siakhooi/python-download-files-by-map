@@ -19,6 +19,19 @@ def parse_arguments():
         help="Enable or disable SSL certificate verification"
         " (default: enabled).",
     )
+    parser.add_argument(
+        "--debug",
+        action="store_true",
+        help="Enable debug logging (overrides --log-level)",
+    )
+    parser.add_argument(
+        "--log-level",
+        default=None,
+        help=(
+            "Set log level (DEBUG, INFO, WARNING, ERROR, CRITICAL). "
+            "Default: INFO."
+        ),
+    )
     return parser.parse_args()
 
 
