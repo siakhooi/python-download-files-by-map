@@ -13,4 +13,6 @@ def get_filename_from_arguments():
 
 
 def mkdir_parent_directories(path):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+    parent = os.path.dirname(path)
+    if parent:
+        os.makedirs(parent, exist_ok=True)

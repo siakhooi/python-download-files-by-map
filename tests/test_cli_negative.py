@@ -11,7 +11,7 @@ def test_cli_file_not_found(monkeypatch, capsys):
         run()
     assert pytest_wrapped_e.type == SystemExit
     assert pytest_wrapped_e.value.code == 2
-    expected_output = "i-am-blahblah.json is not exist.\n"
+    expected_output = "i-am-blahblah.json does not exist.\n"
     captured = capsys.readouterr()
     assert captured.err == expected_output
 

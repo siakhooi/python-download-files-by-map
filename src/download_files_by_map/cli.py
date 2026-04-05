@@ -1,4 +1,4 @@
-from download_files_by_map.download_files_by_map import download_files_by_map
+from download_files_by_map.core import download_files_by_map
 
 
 def run():
