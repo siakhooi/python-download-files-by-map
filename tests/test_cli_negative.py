@@ -21,7 +21,4 @@ def test_cli_file_wrong_arguments(monkeypatch, capsys):
     with pytest.raises(SystemExit) as pytest_wrapped_e:
         run()
     assert pytest_wrapped_e.type == SystemExit
-    assert pytest_wrapped_e.value.code == 1
-    expected_output = "Usage: download_files_by_maps [map_json_file]\n"
-    captured = capsys.readouterr()
-    assert captured.err == expected_output
+    assert pytest_wrapped_e.value.code == 2

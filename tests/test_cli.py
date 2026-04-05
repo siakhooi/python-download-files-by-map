@@ -19,6 +19,7 @@ def test_cli_map_objects(monkeypatch, responses, tmp_path):
         "sys.argv",
         [
             "download_files_by_map.py",
+            "--no-ssl-verify",
             os.path.join(original_cwd, "tests/test-data/map1.json"),
         ],
     )
@@ -45,6 +46,7 @@ def test_cli_map_array(monkeypatch, responses, tmp_path):
         "sys.argv",
         [
             "download_files_by_map.py",
+            "--no-ssl-verify",
             os.path.join(original_cwd, "tests/test-data/map2.json"),
         ],
     )

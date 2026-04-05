@@ -4,10 +4,8 @@ import signal
 import requests
 import urllib3
 import os
-from download_files_by_map.util import get_filename_from_arguments
+from download_files_by_map.util import parse_arguments
 from download_files_by_map.util import mkdir_parent_directories
-
-urllib3.disable_warnings()
 
 CHUNK_SIZE = 8192
 
@@ -40,7 +38,7 @@ def _collect_files(data, parent_directory, file_list):
         file_list.append({"path": path, "url": data["remote_url"]})
 
 
-def download_files_by_map(verify_ssl=False):
+def download_files_by_map():
     _shutdown_requested = False
 
     def handle_shutdown_signal(signum, frame):
@@ -52,7 +50,13 @@ def download_files_by_map(verify_ssl=False):
     signal.signal(signal.SIGINT, handle_shutdown_signal)
     signal.signal(signal.SIGTERM, handle_shutdown_signal)
 
-    filename = get_filename_from_arguments()
+    args = parse_arguments()
+    verify_ssl = args.ssl_verify
+
+    if not verify_ssl:
+        urllib3.disable_warnings()
+
+    filename = args.map_file
 
     if filename:
         if not os.path.exists(filename):

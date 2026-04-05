@@ -3,7 +3,9 @@ clean:
 	rm -rf dist target coverage sample download_files_by_map-0.1.0.tar.gz \
 	.pytest_cache .tox .coverage tests/__pycache__ src/download_files_by_map/__pycache__
 run:
-	poetry run download-files-by-map tests/test-data/map1.json
+	poetry run download-files-by-map sample-map.json
+run2:
+	poetry run download-files-by-map --no-ssl-verify sample-map.json
 build:
 	scripts/set-version.sh
 	poetry build

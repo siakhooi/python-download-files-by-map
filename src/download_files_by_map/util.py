@@ -1,15 +1,25 @@
-import sys
+import argparse
 import os
 
 
-def get_filename_from_arguments():
-    if len(sys.argv) == 2:
-        return sys.argv[1]
-    elif len(sys.argv) == 1:
-        return None
-    else:
-        print("Usage: download_files_by_maps [map_json_file]", file=sys.stderr)
-        sys.exit(1)
+def parse_arguments():
+    parser = argparse.ArgumentParser(
+        description="Download files using a JSON tree map."
+    )
+    parser.add_argument(
+        "map_file",
+        nargs="?",
+        default=None,
+        help="Path to the JSON map file. Reads from stdin if omitted.",
+    )
+    parser.add_argument(
+        "--ssl-verify",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Enable or disable SSL certificate verification"
+        " (default: enabled).",
+    )
+    return parser.parse_args()
 
 
 def mkdir_parent_directories(path):
