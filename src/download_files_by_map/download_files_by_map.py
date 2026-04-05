@@ -1,5 +1,6 @@
 import sys
 import json
+import signal
 import requests
 import urllib3
 import os
@@ -9,10 +10,21 @@ from download_files_by_map.util import mkdir_parent_directories
 urllib3.disable_warnings()
 
 file_list = []
+shutdown_requested = False
+
+
+def _handle_shutdown_signal(signum, frame):
+    global shutdown_requested
+    signal_name = signal.Signals(signum).name
+    print(f"\n{signal_name} received, finishing current download...")
+    shutdown_requested = True
 
 
 def download():
     for file in file_list:
+        if shutdown_requested:
+            print("Shutdown requested, skipping remaining downloads.")
+            break
         path = file["path"]
         url = file["url"]
         print(f"{path}")
@@ -48,6 +60,9 @@ def process(data, parent_directory):
 
 
 def download_files_by_map():
+    signal.signal(signal.SIGINT, _handle_shutdown_signal)
+    signal.signal(signal.SIGTERM, _handle_shutdown_signal)
+
     filename = get_filename_from_arguments()
     if filename:
         if not os.path.exists(filename):
