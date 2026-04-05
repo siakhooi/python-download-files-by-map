@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "download-files-by-map: map1",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "download_files_by_map.cli",
+            "args": [
+                "tests/test-data/map1.json"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/src"
+            },
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

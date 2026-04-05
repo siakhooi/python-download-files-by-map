@@ -23,6 +23,8 @@ test:
 	 --cov-report lcov:coverage/coverage.info
 
 all: clean install flake8 build tox-run
+one: clean install flake8 build
+	tox run -e py314
 
 release:
 	scripts/release.sh
